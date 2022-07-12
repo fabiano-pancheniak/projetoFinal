@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+.titleContainer{
+    font-family: 'Maven Pro', sans-serif;
+    width: 25%;
+    display: inline-block;
+    text-align: start;
+    .titleDiv{
+        width: 70%;
+        margin-top: 25%;
+        .title{
+            color: white;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 5%;
+        }
+        .subtitle{
+            color: white;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 40%;
+        }
+    }
+    
+    .form{
+        .login{
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 5%;
+        }
+    }
+    
+}
