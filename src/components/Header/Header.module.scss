@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+header{
+    color: #222222;
+    font-family: 'Maven Pro', sans-serif;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+.headerImg{
+    margin-top: 1%;
+    margin-left: 2%;
+}
+
+.time{
+    text-align: center;
+    .hour{
+        font-size: 7em;
+        letter-spacing: -5px;
+        font-weight: 700;
+    }
+    .date{
+        font-size: 0.7em;
+        font-weight: 400;
+    }
+}
+
+.locationTemp{
+    text-align: center;
+    margin-top: 1%;
+    margin-right: 1%;
+    width: 10%;
+    .temperatureDiv{
+        display: inline-block;
+        margin-top: 5%;
+        width: 100%;
+        .temperature{
+            font-size: 2.3em;
+            font-weight: 700;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 4%;
+        }
+        .temperatureImg{
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    .location{ 
+        font-size: 0.7em;
+        font-weight: 400;
+    }
+}
+}

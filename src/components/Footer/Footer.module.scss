@@ -1,10 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+
 .footer{
     width: 100%;
-    height: 50%;
     background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
+    display: block;
+    font-family: 'Maven Pro', sans-serif;
+    color: white;
+    position: fixed;
+    bottom: 0;
     .text{
-        color: white;
         width: 30%;
         margin-left: 15%;
+        margin-right: 1%;
+        font-size: 0.7em;
+        font-family: 'Maven Pro', sans-serif;
+        text-align: end;
+        display: inline-block;
+    }
+    .line{
+        height: 61px;
+        width: 0px;
+        vertical-align: middle;
+        color: white;
+        display: inline-block;
+        border: solid 0.5px white;
+        margin: 1%;
+        margin-right: 9%;
+        background-color: white;
+    }
+    .countdownTextRefresh{
+        width: 5%;
+        display: inline-block;
+        text-align: end;
+        font-size: 0.8em;
+        vertical-align: middle;
+        margin-right: 2%;
+    }
+    .countdown{
+        display: inline-block;
+        font-size: 0.8em;
+        vertical-align: middle;
+        
+
+        .countdownNumberText{
+            display: inline-block;
+        .countdownTextSeconds{
+            text-align: center;
+        }
+        .countdownNumber{
+            font-size: 3.2em;
+            font-weight: 700;
+        }
+    }
+    }
+    .squares{
+        border: solid 1px red;
+        float: right;
+        font-size: 0.7em;
+        width: 20%;
+        height: 100%;
+        box-sizing: border-box;
+        .continue{
+            border: solid 1px yellow;
+            display: inline-block;
+            background-color: white;
+            color: #C13216;
+            width: 48%;
+        }
+        .logout{
+            border: solid 1px aquamarine;
+            display: inline-block;
+            width: 48%;
+        }
     }
 }
