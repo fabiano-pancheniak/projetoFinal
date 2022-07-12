@@ -2,10 +2,18 @@ import React from "react";
 import styles from './Header.module.scss';
 import logo from "../../assets/logo2.png";
 import cloudy from "../../assets/cloudy.svg";
+import { useState, useEffect } from 'react';
+import DateTime from "./Datetime";
 
 
 
 export default function Header(){
+
+      
+
+   
+
+    
 
     const weekday = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"];
     const monthTxt = 
@@ -24,8 +32,6 @@ export default function Header(){
 
     const d = new Date();
   
-    const hour = d.getHours();
-    const min = d.getMinutes();
     let day = weekday[d.getDay()];
     let month = monthTxt[d.getMonth()];
     let year = d.getFullYear();
@@ -47,7 +53,7 @@ export default function Header(){
             <img src={logo} alt="Logo"></img>
         </div>
         <div className={styles.time}>
-            <div className={styles.hour}>{hour}:{min}</div>
+            <div className={styles.hour}><DateTime /></div>
             <div className={styles.date}> {day}, {dayNumber} de {month} de {year}</div>
         </div>
         <div className={styles.locationTemp}>
