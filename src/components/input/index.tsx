@@ -9,6 +9,7 @@ export default function Input(){
 
     return(
         <>
+            <div></div>
             {true ? <input className={styles.input} placeholder="Usuário"></input> : <input className={styles.inputError} placeholder="Usuário"></input>}
             <img className={styles.inputIcon} src={userIcon} alt="User icon" />
 
