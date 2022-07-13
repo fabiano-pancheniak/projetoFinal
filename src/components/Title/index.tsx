@@ -2,8 +2,10 @@ import React from "react";
 import styles from './Title.module.scss';
 import Input from "../input";
 import Button from "../button";
+import classnames from 'classnames';
 
 export default function Title(){
+
     return(
         <div className={styles.titleContainer}>
             <div className={styles.titleDiv}>
@@ -14,6 +16,7 @@ export default function Title(){
             <h2 className={styles.login}> Login </h2>
             <form>
             <Input />
+            {false ? <div className={classnames(styles.error)}> Ops, usuário ou senha inválidos. Tente novamente!</div> : ''}
             <Button />
             </form>
             </div>

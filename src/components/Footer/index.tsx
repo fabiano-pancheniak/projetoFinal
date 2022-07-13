@@ -7,7 +7,7 @@ export default function Footer(){
     const [counter, setCounter] = React.useState(60);
     React.useEffect(() => {
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
-        if(counter == 0 ){
+        if(counter === 0 ){
             setCounter(counter + 60)
         }
       }, [counter]);
@@ -22,9 +22,17 @@ export default function Footer(){
                 <div className={styles.countdownTextSeconds}> seconds </div>
                 </div>
             </div>
-            <div className={styles.squares}>
-                <div className={styles.continue}> Continuar navegando </div>
-                <div className={styles.logout}> Logout </div>
+            <div className={styles.continueLogout}>
+                <div className={styles.squares}>
+                    <div className={styles.continue}> 
+                    <a href="https://google.com" target="_blank" rel="noreferrer">
+                        <div className={styles.shrink}>Continuar navegando </div>
+                    </a>
+                    </div>
+                    <div className={styles.logout}> 
+                        <div className={styles.shrink}> Logout </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
