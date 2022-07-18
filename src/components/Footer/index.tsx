@@ -1,19 +1,36 @@
 import React from "react";
 import styles from './Footer.module.scss';
 import { useNavigate } from "react-router-dom";
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut,
+  } from "firebase/auth";
+  import { auth } from "../../firebase-config";
 
 
 export default function Footer(){
     const navigate = useNavigate();
-    function navigateToHome() {
+    function navigateHome() {
+        navigateHome();
 		navigate("/");
 	}
 
-    const [counter, setCounter] = React.useState(60);
+    const logout = async () => {
+        await signOut(auth);
+      };
+
+    function redirect(){
+        window.open('https://google.com', '_blank');
+    }
+
+    const [counter, setCounter] = React.useState(3600);
     React.useEffect(() => {
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
         if(counter === 0 ){
-            navigateToHome();
+              logout();
+              
         }
       }, [counter]);
     return(
@@ -30,12 +47,10 @@ export default function Footer(){
             <div className={styles.continueLogout}>
                 <div className={styles.squares}>
                     <div className={styles.continue}> 
-                    <a href="https://google.com" target="_blank" rel="noreferrer">
-                        <div className={styles.shrink}>Continuar navegando </div>
-                    </a>
+                        <button onClick={() => logout()} className={styles.btnContinue}> Continuar navegando </button>
                     </div>
                     <div className={styles.logout}> 
-                        <div className={styles.shrink}> Logout </div>
+                        <button onClick={() => logout()} className={styles.btnLogout}> Logout </button>
                     </div>
                 </div>
             </div>

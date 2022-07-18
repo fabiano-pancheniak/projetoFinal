@@ -20,4 +20,12 @@
         vertical-align: middle;
         display: inline-block;
     }
+
+    .checkbox{
+        border: red 2px solid;
+    }
+
+    .invalid{
+        border: 2px green solid;
+    }
 }

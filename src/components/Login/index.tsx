@@ -1,15 +1,37 @@
 import styles from "./Login.module.scss";
 import { useNavigate, Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../common/context/User";
 import classNames from "classnames";
 import EmailInput from "../input/user";
 import InputPassword from "../input/password";
+import {
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+	onAuthStateChanged,
+	signOut,
+  } from "firebase/auth";
+  import { auth } from "../../firebase-config";
 
 export default function Login() {
 	const navigate = useNavigate();
 	const { validEmail, validPassword } = useContext(UserContext);
 	const [error, setError] = useState(false);
+	const [registerEmail, setRegisterEmail] = useState("");
+	const [registerPassword, setRegisterPassword] = useState("");
+	const [loginEmail, setLoginEmail] = useState("");
+	const [loginPassword, setLoginPassword] = useState("");
+	const [user, setUser] = useState({});
+
+	
+	useEffect(() => {
+		onAuthStateChanged(auth, (currentUser) => {
+			//@ts-ignore
+			setUser(currentUser);
+		});
+	
+	}, [])
+
 
 	function navigateToMain() {
 		navigate("/main");
@@ -21,6 +43,7 @@ export default function Login() {
 		const userInput = (document.getElementById('email') as HTMLInputElement).value
 		const passwordInput = (document.getElementById('password') as HTMLInputElement).value
 
+
 		if(userInput === '' || passwordInput === ''){
 			notEmpty = false;
 		}
@@ -29,23 +52,25 @@ export default function Login() {
 			setError(true);
 			return false;
 		}
-		console.log('enviar form')
-		const payload = {
-			email: userInput, 
-			password: passwordInput
-		};
-		console.log(payload)
 
-		fetch('http://127.0.0.1:3000/api/user', {
-        method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		  },
-        body: JSON.stringify(payload)
-		})
-		.then(res => res.json())
+		const login = async () => {
+			try {
+			  const user = await signInWithEmailAndPassword(
+				auth,
+				userInput,
+				passwordInput
+			  );
+			  console.log(user);
 		navigateToMain();
+			} catch (error) {
+				setError(true);
+			}
+		  };
+		  login();
 		}
+
+
+		
 
 		
 

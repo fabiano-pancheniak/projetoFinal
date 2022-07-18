@@ -6,11 +6,25 @@ import classNames from "classnames";
 import EmailInput from "../input/user";
 import InputPassword from "../input/password";
 import {Link} from 'react-router-dom';
+import {
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+	onAuthStateChanged,
+	signOut,
+  } from "firebase/auth";
+
+import { auth } from "../../firebase-config";
 
 export default function Create() {
 	const navigate = useNavigate();
 	const { validEmail, validPassword } = useContext(UserContext);
 	const [error, setError] = useState(false);
+	const [registerEmail, setRegisterEmail] = useState("");
+	const [registerPassword, setRegisterPassword] = useState("");
+	const [loginEmail, setLoginEmail] = useState("");
+	const [loginPassword, setLoginPassword] = useState("");
+  
+	const [user, setUser] = useState({});
 
 	function navigateToMain() {
 		navigate("/main");
@@ -30,23 +44,24 @@ export default function Create() {
 			setError(true);
 			return false;
 		}
-		console.log('enviar form')
-		const payload = {
-			email: userInput, 
-			password: passwordInput
-		};
-		console.log(payload)
 
-		fetch('http://127.0.0.1:3000/api/user', {
-        method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		  },
-        body: JSON.stringify(payload)
-		})
-		.then(res => res.json())
-		alert("Usuário cadastro com sucesso. Acessando página de login")
-		navigateToMain()
+		
+
+		const register = async () => {
+			try {
+			  const user = await createUserWithEmailAndPassword(
+				auth,
+				userInput,
+				passwordInput
+			  );
+			  console.log(user);
+			} catch (error) {
+			  console.log(error);
+			}
+		};
+
+		  register();
+
 		}
 
 		
@@ -61,6 +76,7 @@ export default function Create() {
             </div>
             <div className={styles.form}>
             <h2 className={styles.login}> Registre-se </h2>
+			
             <EmailInput />
             <InputPassword />
 			<div className={styles.registerOrLogin}> Já passui cadastro? <Link to='/'>Login</Link></div>
@@ -74,6 +90,7 @@ export default function Create() {
 							</div>
 							</div>
             <button onClick={() => validate()} className={styles.btn}> Continuar </button>
+			
             </div>
         </div>
 		</>
