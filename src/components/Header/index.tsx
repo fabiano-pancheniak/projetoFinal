@@ -1,20 +1,12 @@
 import React from "react";
 import styles from './Header.module.scss';
 import logo from "../../assets/logo2.png";
-import cloudy from "../../assets/cloudy.svg";
-import { useState, useEffect } from 'react';
 import DateTime from "./Datetime";
+import Weather from "./Weather";
 
 
 
 export default function Header(){
-
-      
-
-   
-
-    
-
     const weekday = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"];
     const monthTxt = 
     ["janeiro",
@@ -56,13 +48,7 @@ export default function Header(){
             <div className={styles.hour}><DateTime /></div>
             <div className={styles.date}> {day}, {dayNumber} de {month} de {year}</div>
         </div>
-        <div className={styles.locationTemp}>
-            <div className={styles.location}> Passo Fundo - RS</div>
-            <div className={styles.temperatureDiv}>
-            <img className={styles.temperatureImg} src={cloudy} alt="Temperature icon"></img>
-            <div className={styles.temperature}> 22º</div>
-            </div>
-        </div>
+        <Weather />
         </header>
     )
 }

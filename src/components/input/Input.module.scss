@@ -1,57 +1,23 @@
-.input{
-    color: #E0E0E0;
-    font-weight: 400;
-    border: solid 1px #E0E0E0;
-    border-radius: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 23px;
-    font-size: 0.8em;
-    display: block;
-    width: 75%;
-    margin-top: 10%;
-    padding-left: 5%;
-    display: inline-block;
-    background-color: #222222;
-}
+.inputContainer {
+    flex-direction: row;
+    margin-bottom: 8%;
+    width: 100%;
+    .formInput {
+        width: 75%;
+        background: transparent;
+        color: #E0E0E0;
+        border: 1px solid white;
+        outline: none;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        padding: 15px;
+        margin-right: 2%;
+    }
 
-.input:active{
-    color: #E0E0E0;
-    font-weight: 400;
-    border: solid 1px #E0E0E0;
-    border-radius: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 23px;
-    font-size: 0.8em;
-    display: block;
-    width: 75%;
-    margin-top: 10%;
-    padding-left: 5%;
-    display: inline-block;
-    background-color: #222222;
+    .inputIcon{
+        min-width: 5%;
+        margin-left: 1%;
+        vertical-align: middle;
+        display: inline-block;
+    }
 }
-
-.inputError{
-    color: #E0E0E0;
-    font-weight: 400;
-    border: solid 1px #E9B425;
-    border-radius: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 23px;
-    font-size: 0.8em;
-    display: block;
-    width: 75%;
-    margin-top: 10%;
-    padding-left: 5%;
-    display: inline-block;
-    background-color: #222222;
-}
-
-.inputIcon{
-    display: inline-block;
-    margin-left: 2%;
-    vertical-align: middle;
-}
-

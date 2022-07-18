@@ -1,15 +1,19 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { getModeForUsageLocation } from 'typescript';
 import Container from './components/Container';
+import ContainerCreate from './components/containerCreate';
 import Main from './pages/Main';
+import { UserProvider } from "./common/context/User";
 
 export default function AppRouter(){
     return(
         <Router>
-            <Routes>
-                <Route path='/' element={<Container />}/>
-                <Route path='main' element={<Main />}/>
-            </Routes>
+            <UserProvider>
+                <Routes>
+                    <Route path='/' element={<Container />}/>
+                    <Route path='main' element={<Main />}/>
+                    <Route path='register' element={<ContainerCreate />}/>
+                </Routes>
+            </UserProvider>
         </Router>
     )
 }

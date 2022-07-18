@@ -1,14 +1,19 @@
 import React from "react";
 import styles from './Footer.module.scss';
+import { useNavigate } from "react-router-dom";
 
 
 export default function Footer(){
+    const navigate = useNavigate();
+    function navigateToHome() {
+		navigate("/");
+	}
 
     const [counter, setCounter] = React.useState(60);
     React.useEffect(() => {
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
         if(counter === 0 ){
-            setCounter(counter + 60)
+            navigateToHome();
         }
       }, [counter]);
     return(
