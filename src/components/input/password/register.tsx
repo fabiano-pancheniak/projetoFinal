@@ -5,7 +5,7 @@ import { UserContext } from "../../../common/context/User";
 import { useContext, useState } from "react";
 import classNames from "classnames";
 
-export default function InputPassword() {
+export default function RegisterPassword() {
     const { password, setPassword, setValidPassword, setError} = useContext(UserContext);
     
     function validatePassword(password: HTMLInputElement) {

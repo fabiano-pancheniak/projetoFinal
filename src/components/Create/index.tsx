@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "../../common/context/User";
 import classNames from "classnames";
-import EmailInput from "../input/user";
-import InputPassword from "../input/password";
+import RegisterEmail from "../input/user/register";
+import RegisterPassword from "../input/password/register";
 import {Link} from 'react-router-dom';
 import {
 	createUserWithEmailAndPassword,
@@ -26,8 +26,8 @@ export default function Create() {
   
 	const [user, setUser] = useState({});
 
-	function navigateToMain() {
-		navigate("/main");
+	function navigateLogin() {
+		navigate("/");
 	}
 
 	function validate() {
@@ -54,7 +54,7 @@ export default function Create() {
 				userInput,
 				passwordInput
 			  );
-			  console.log(user);
+			  navigateLogin();
 			} catch (error) {
 			  console.log(error);
 			}
@@ -77,8 +77,8 @@ export default function Create() {
             <div className={styles.form}>
             <h2 className={styles.login}> Registre-se </h2>
 			
-            <EmailInput />
-            <InputPassword />
+            <RegisterEmail />
+            <RegisterPassword />
 			<div className={styles.registerOrLogin}> Já passui cadastro? <Link to='/'>Login</Link></div>
 			<div className={styles.errorDiv}>
             <div className={classNames({

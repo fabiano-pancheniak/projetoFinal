@@ -3,7 +3,7 @@ import styles from "../Input.module.scss";
 import { UserContext } from "../../../common/context/User";
 import { useContext } from "react";
 
-export default function EmailInput() {
+export default function RegisterEmail() {
     const { email, setEmail, setValidEmail, setError } = useContext(UserContext);
 
     function validateEmail(email: HTMLInputElement) {

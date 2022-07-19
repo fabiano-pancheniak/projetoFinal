@@ -3,8 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../common/context/User";
 import classNames from "classnames";
-import EmailInput from "../input/user";
-import InputPassword from "../input/password";
+import LoginEmail from "../input/user/login";
+import LoginPassword from "../input/password/login";
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
@@ -84,8 +84,8 @@ export default function Login() {
             </div>
             <div className={styles.form}>
             <h2 className={styles.login}> Login </h2>
-            <EmailInput />
-            <InputPassword />
+            <LoginEmail />
+            <LoginPassword />
 			<div className={styles.registerOrLogin}> Não passui cadastro? <Link to='/register'>Registre-se</Link></div>
 			<div className={styles.errorDiv}>
             <div className={classNames({
