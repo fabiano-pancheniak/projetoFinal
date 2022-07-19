@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+//deveria estar em um arquivo .env
 const firebaseConfig = {
     apiKey: "AIzaSyDtuMJQkihZZ_c-de51GhjbQvKU-heB9VY",
     authDomain: "auth-dev-4e4eb.firebaseapp.com",

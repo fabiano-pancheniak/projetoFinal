@@ -25,7 +25,7 @@ export default function Footer(){
         window.open('https://google.com', '_blank');
     }
 
-    const [counter, setCounter] = React.useState(3600);
+    const [counter, setCounter] = React.useState(60);
     React.useEffect(() => {
         counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
         if(counter === 0 ){
@@ -47,7 +47,7 @@ export default function Footer(){
             <div className={styles.continueLogout}>
                 <div className={styles.squares}>
                     <div className={styles.continue}> 
-                        <button onClick={() => logout()} className={styles.btnContinue}> Continuar navegando </button>
+                        <button onClick={() => redirect()} className={styles.btnContinue}> Continuar navegando </button>
                     </div>
                     <div className={styles.logout}> 
                         <button onClick={() => logout()} className={styles.btnLogout}> Logout </button>

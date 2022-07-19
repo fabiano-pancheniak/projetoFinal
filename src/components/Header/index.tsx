@@ -27,7 +27,9 @@ export default function Header(){
     let day = weekday[d.getDay()];
     let month = monthTxt[d.getMonth()];
     let year = d.getFullYear();
-    let dayNumber = d.getDay();
+    let dayNumber = d.getDate();
+
+
 
     
 

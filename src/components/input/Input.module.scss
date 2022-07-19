@@ -20,12 +20,20 @@
         vertical-align: middle;
         display: inline-block;
     }
-
-    .checkbox{
-        border: red 2px solid;
+    .checkboxesLeft{
+        color: white;
+        margin-left: 15%;
+        margin-top: 2%;
+        font-size: 0.7em;
+        display: inline-block;
+        margin-right: 5%;
     }
 
-    .invalid{
-        border: 2px green solid;
+    .checkboxesRight{
+        margin: solid 2px white;
+        color: white;
+        margin-top: 2%;
+        font-size: 0.7em;
+        display: inline-block;
     }
 }
