@@ -1,7 +1,8 @@
 import userIcon from "../../../assets/user.svg";
 import styles from "../Input.module.scss";
 import { UserContext } from "../../../common/context/User";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import classNames from "classnames";
 
 export default function RegisterEmail() {
     const { email, setEmail, setValidEmail, setError } = useContext(UserContext);
@@ -19,6 +20,8 @@ export default function RegisterEmail() {
 		}
 	}
 
+
+
     return (
     <>
     <div className={styles.inputContainer}>
@@ -29,6 +32,6 @@ export default function RegisterEmail() {
         )}
     />
     <img className={styles.inputIcon} src={userIcon} alt="User Icon"/></div>
-        </>
+    </>
     )
 }
