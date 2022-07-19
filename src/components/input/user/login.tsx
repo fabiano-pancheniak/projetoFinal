@@ -6,6 +6,7 @@ import { useContext, useState, useEffect } from "react";
 
 export default function LoginEmail() {
     const { email, setEmail, setValidEmail, setError } = useContext(UserContext);
+    
     const [iconActive, setIconActive] = useState(false);
 
     function validateEmail(email: HTMLInputElement) {

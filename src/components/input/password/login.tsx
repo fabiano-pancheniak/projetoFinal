@@ -14,10 +14,6 @@ export default function LoginPassword() {
         const number = new RegExp(/[0-9]/g);
         const upper = new RegExp(/[A-Z]/g);
         const lower = new RegExp(/[a-z]/g);
-        const numCheck = document.getElementById('numero',) as HTMLInputElement | null;
-        const upperCheck = document.getElementById('maiuscula',) as HTMLInputElement | null;
-        const lowerCheck = document.getElementById('minuscula',) as HTMLInputElement | null;
-        const lengthCheck = document.getElementById('length',) as HTMLInputElement | null;
 
         if (!password.value.match(passwordReg)) {
             setError(true);
@@ -36,8 +32,6 @@ export default function LoginPassword() {
             setIconActive(false);
         }
     }, [password])
-
-
 
     return (
     <>

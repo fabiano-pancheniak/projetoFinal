@@ -15,10 +15,8 @@ export const UserProvider = ({ children }) => {
     const [validEmail, setValidEmail] = useState(true);
     const [password, setPassword] = useState("");
     const [validPassword, setValidPassword] = useState(true);
-    const [passwordNum, setValidPasswordNum] = useState(false);
     const [error, setError] = useState(false);
     const [currentUser, setCurrentUser] = useState({});
-    const [pending, setPending] = useState(true);
 
     useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {

@@ -19,12 +19,6 @@ export default function Create() {
 	const navigate = useNavigate();
 	const { validEmail, validPassword } = useContext(UserContext);
 	const [error, setError] = useState(false);
-	const [registerEmail, setRegisterEmail] = useState("");
-	const [registerPassword, setRegisterPassword] = useState("");
-	const [loginEmail, setLoginEmail] = useState("");
-	const [loginPassword, setLoginPassword] = useState("");
-  
-	const [user, setUser] = useState({});
 
 	function navigateLogin() {
 		navigate("/");

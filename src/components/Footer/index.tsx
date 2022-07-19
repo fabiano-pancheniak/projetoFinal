@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './Footer.module.scss';
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     createUserWithEmailAndPassword,
@@ -25,14 +26,16 @@ export default function Footer(){
         window.open('https://google.com', '_blank');
     }
 
-    const [counter, setCounter] = React.useState(60);
-    React.useEffect(() => {
-        counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
+    const [counter, setCounter] = useState(60);      
+    useEffect(() => {
+        counter > 0 && setTimeout(() => 
+        setCounter(counter - 1), 1000);
         if(counter === 0 ){
-              logout();
-              
+              logout();  
         }
       }, [counter]);
+
+
     return(
         <div className={styles.footer}> 
             <p className={styles.text}>Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a aberta em segundo plano e abra uma nova janela para continuar a navegar.</p>
