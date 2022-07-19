@@ -1,6 +1,5 @@
 import passwordIcon from "../../../assets/icon-password.svg";
 import styles from "../Input.module.scss";
-import className from "classnames";
 import { UserContext } from "../../../common/context/User";
 import { useContext, useState, useEffect } from "react";
 import classNames from "classnames";
@@ -11,9 +10,6 @@ export default function LoginPassword() {
     
     function validatePassword(password: HTMLInputElement) {
         const passwordReg = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/);
-        const number = new RegExp(/[0-9]/g);
-        const upper = new RegExp(/[A-Z]/g);
-        const lower = new RegExp(/[a-z]/g);
 
         if (!password.value.match(passwordReg)) {
             setError(true);

@@ -71,3 +71,28 @@
     }
       
 }
+
+
+@media only screen and (max-width: 450px) {
+    .iconActive {
+        position: relative;
+        left: -17%;
+        transition: 1s;
+    }
+  }
+
+  @media only screen and (max-width: 330px) {
+    .inputContainer{
+        .formInput {
+            width: 64%;
+            margin-right: 5%;
+        }
+    }
+
+    .iconActive {
+        position: relative;
+        left: -23%;
+        transition: 1s;
+    }
+    
+  }
