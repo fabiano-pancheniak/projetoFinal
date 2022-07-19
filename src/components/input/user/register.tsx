@@ -6,6 +6,7 @@ import classNames from "classnames";
 
 export default function RegisterEmail() {
     const { email, setEmail, setValidEmail, setError } = useContext(UserContext);
+    const [iconActive, setIconActive] = useState(false);
 
     function validateEmail(email: HTMLInputElement) {
         const emailReg = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
@@ -20,7 +21,13 @@ export default function RegisterEmail() {
 		}
 	}
 
-
+    useEffect(()=> {
+        if(email !== ""){
+            setIconActive(true);
+        }else{
+            setIconActive(false);
+        }
+    }, [email])
 
     return (
     <>
@@ -31,7 +38,11 @@ export default function RegisterEmail() {
             validateEmail(event.target)
         )}
     />
-    <img className={styles.inputIcon} src={userIcon} alt="User Icon"/></div>
+    <img className={classNames({
+                [styles.inputIcon]: true,
+                [styles.iconActive]: iconActive
+            })} src={userIcon} alt="user Icon"/>
+            </div>
     </>
     )
 }

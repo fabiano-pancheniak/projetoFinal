@@ -1,10 +1,12 @@
 import userIcon from "../../../assets/user.svg";
 import styles from "../Input.module.scss";
+import classNames from "classnames";
 import { UserContext } from "../../../common/context/User";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 
 export default function LoginEmail() {
     const { email, setEmail, setValidEmail, setError } = useContext(UserContext);
+    const [iconActive, setIconActive] = useState(false);
 
     function validateEmail(email: HTMLInputElement) {
         const emailReg = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
@@ -18,6 +20,14 @@ export default function LoginEmail() {
 		}
 	}
 
+    useEffect(()=> {
+        if(email !== ""){
+            setIconActive(true);
+        }else{
+            setIconActive(false);
+        }
+    }, [email])
+
     return (
     <>
     <div className={styles.inputContainer}>
@@ -27,7 +37,11 @@ export default function LoginEmail() {
             validateEmail(event.target)
         )}
     />
-    <img className={styles.inputIcon} src={userIcon} alt="User Icon"/></div>
+    <img className={classNames({
+                [styles.inputIcon]: true,
+                [styles.iconActive]: iconActive
+            })} src={userIcon} alt="user Icon"/>
+            </div>
         </>
     )
 }

@@ -2,11 +2,12 @@ import passwordIcon from "../../../assets/icon-password.svg";
 import styles from "../Input.module.scss";
 import className from "classnames";
 import { UserContext } from "../../../common/context/User";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import classNames from "classnames";
 
 export default function LoginPassword() {
     const { password, setPassword, setValidPassword, setError} = useContext(UserContext);
+    const [iconActive, setIconActive] = useState(false);
     
     function validatePassword(password: HTMLInputElement) {
         const passwordReg = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/);
@@ -28,6 +29,14 @@ export default function LoginPassword() {
         }
     }
 
+    useEffect(()=> {
+        if(password !== ""){
+            setIconActive(true);
+        }else{
+            setIconActive(false);
+        }
+    }, [password])
+
 
 
     return (
@@ -38,7 +47,10 @@ export default function LoginPassword() {
                 setPassword(event.target.value),
                 validatePassword(event.target)
             )}/>
-            <img className={styles.inputIcon} src={passwordIcon} alt="Password Icon"/>
+            <img className={classNames({
+                [styles.inputIcon]: true,
+                [styles.iconActive]: iconActive
+            })} src={passwordIcon} alt="Password Icon"/>
            
     </div>
     </>

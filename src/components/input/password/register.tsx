@@ -2,12 +2,13 @@ import passwordIcon from "../../../assets/icon-password.svg";
 import styles from "../Input.module.scss";
 import className from "classnames";
 import { UserContext } from "../../../common/context/User";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import classNames from "classnames";
 
 export default function RegisterPassword() {
     const { password, setPassword, setValidPassword, setError} = useContext(UserContext);
-    
+    const [iconActive, setIconActive] = useState(false);
+    const [invalidPassword, setInvalidPassword] = useState(false);
     const [numCheck, setNumChecked] = useState(false);
     const [upperCheck, setUpperChecked] = useState(false);
     const [lowerCheck, setLowerChecked] = useState(false);
@@ -43,27 +44,38 @@ export default function RegisterPassword() {
             setLengthChecked(true)
         }
         if (!password.value.match(passwordReg)) {
-            password.style.border = "solid 1px #E9B425";
+            //ficou redundante
             setError(true);
             setValidPassword(false);
+            setInvalidPassword(true);
         } else {
-            password.style.border = "";
             setError(false);
             setValidPassword(true);
+            setInvalidPassword(false);
         }
     }
 
+    useEffect(()=> {
+        if(password !== ""){
+            setIconActive(true);
+        }else{
+            setIconActive(false);
+        }
+    }, [password])
 
 
     return (
     <>
     <div className={styles.inputContainer}>
-           <input id="password" name="password" className={styles.formInput} type="password" placeholder="Senha" value={password}
+           <input id="password" name="password" className={classNames({[styles.formInput]: true, [styles.passwordError]: invalidPassword})}type="password" placeholder="Senha" value={password}
             onChange={(event) => (
                 setPassword(event.target.value),
                 validatePassword(event.target)
             )}/>
-            <img className={styles.inputIcon} src={passwordIcon} alt="Password Icon"/>
+            <img className={classNames({
+                [styles.inputIcon]: true,
+                [styles.iconActive]: iconActive
+            })} src={passwordIcon} alt="Password Icon"/>
             <div className={styles.checkboxesLeft}>
                 <div className={classNames({[styles.notChecked]: true, [styles.checkedImg]: numCheck})}></div>
                 <label className={classNames({[styles.green]: numCheck})} htmlFor="numero">Número</label>
