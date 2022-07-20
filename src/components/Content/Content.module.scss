@@ -35,3 +35,40 @@
         }
 }
 
+@media only screen and (max-width: 450px) {
+    .logoImg{
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        opacity: 0.2;
+    }
+    
+    .text{
+        font-family: 'Maven Pro', sans-serif;
+        margin-top: 25%;
+        margin-right: 7%;
+        margin-left: 7%;
+        text-align: end;
+        width: 90%;
+            .textEngSm{
+                color: #C12D18;
+                font-size: 1.4em;
+                font-weight: 700;
+            }
+            .textPtSm{
+                color: #222222;
+                font-size: 0.8em;
+                font-weight: 400;
+                margin-bottom: 5%;
+                margin-top: 1%;
+            }
+    
+            .textEng{
+                color: #C12D18;
+                font-size: 1.8em;
+                font-weight: 700;
+            }
+    }
+  }
+

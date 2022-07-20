@@ -3,7 +3,7 @@ import styles from './Content.module.scss';
 import logo from "../../assets/logo.png";
 
 
-export default function Footer(){
+export default function Content(){
     return(
         <>
         <img className={styles.logoImg} src={logo} alt="Logo"></img>

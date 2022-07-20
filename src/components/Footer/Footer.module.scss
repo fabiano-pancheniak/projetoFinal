@@ -120,3 +120,114 @@
     
 }
 
+
+@media only screen and (max-width: 450px) {
+    .footer{
+        width: 100%;
+        background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
+        display: block;
+        font-family: 'Maven Pro', sans-serif;
+        color: white;
+        height: 20%;
+        .text{
+            width: 80%;
+            font-size: 0.7em;
+            font-family: 'Maven Pro', sans-serif;
+            text-align: center;
+            margin: 0 auto;
+            display: flex;
+            margin-bottom: 5%;
+            margin-top: 2%;
+        }
+        .line{
+            display: none;
+        }
+        .countdownTextRefresh{
+            width: 20%;
+            display: inline-block;
+            text-align: end;
+            font-size: 0.8em;
+            vertical-align: middle;
+            margin-right: 2%;
+            margin-left: 20%;
+        }
+        .countdown{
+            display: inline-block;
+            font-size: 0.8em;
+            vertical-align: middle;
+            
+    
+            .countdownNumberText{
+                display: inline-block;
+            .countdownTextSeconds{
+                text-align: center;
+            }
+            .countdownNumber{
+                font-size: 3.2em;
+                font-weight: 700;
+            }
+        }
+        }
+    
+        .continueLogout{
+            width: 35%;
+            height: 60%;
+        .squares{
+            font-size: 0.8em;
+            height: 100%;
+            display: flex;
+            vertical-align: middle;
+    
+            .continue{
+                background-color: white;
+                color: #C13216;
+                width: 50%;
+                height: 100%;
+                text-align: center;   
+                display: inline-block;
+                opacity: 0.8;
+                border-radius: 3%;
+    
+    
+                .btnContinue{
+                width: 60%;
+                height: 100%;
+                margin: auto;
+                color: #C13216;
+                background-color: white;
+                border: none;
+                font-size: 0.9em;
+                font-weight: 600;
+                }
+            }
+    
+            .logout{
+                background-color: transparent;
+                color: white;
+                width: 50%;
+                height: 100%;
+                
+            }
+    
+            .btnLogout{
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                margin: auto;
+                color: white;
+                background-color: transparent;
+                border: none;
+            }
+        }
+    }
+        
+        
+    }
+  }
+
+ 
+

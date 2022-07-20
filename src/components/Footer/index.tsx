@@ -2,21 +2,11 @@ import React from "react";
 import styles from './Footer.module.scss';
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut,
-  } from "firebase/auth";
+import { signOut } from "firebase/auth";
   import { auth } from "../../firebase-config";
 
 
 export default function Footer(){
-    const navigate = useNavigate();
-    function navigateHome() {
-        navigateHome();
-		navigate("/");
-	}
 
     const logout = async () => {
         await signOut(auth);
@@ -26,10 +16,11 @@ export default function Footer(){
         window.open('https://google.com', '_blank');
     }
 
-    const [counter, setCounter] = useState(60);      
+    const [counter, setCounter] = useState(60);  
+
     useEffect(() => {
         counter > 0 && setTimeout(() => 
-        setCounter(counter - 1), 1000);
+        setCounter(counter - 1), 100000);
         if(counter === 0 ){
               logout();  
         }
@@ -38,7 +29,7 @@ export default function Footer(){
 
     return(
         <div className={styles.footer}> 
-            <p className={styles.text}>Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a aberta em segundo plano e abra uma nova janela para continuar a navegar.</p>
+            <div className={styles.text}>Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a aberta em segundo plano e abra uma nova janela para continuar a navegar.</div>
             <div className={styles.line}></div>
             <div className={styles.countdownTextRefresh}> Application refresh in</div>
             <div className={styles.countdown}>
