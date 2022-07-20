@@ -3,6 +3,7 @@ import styles from "../Input.module.scss";
 import { UserContext } from "../../../common/context/User";
 import { useContext, useState, useEffect } from "react";
 import classNames from "classnames";
+import { textSpanEnd } from "typescript";
 
 export default function LoginPassword() {
     const { password, setPassword, setValidPassword, setError} = useContext(UserContext);
@@ -21,18 +22,26 @@ export default function LoginPassword() {
         }
     }
 
+    function inside(){
+        setIconActive(true)
+    }
+
+    function outside(){
+        if(password == ""){
+            setIconActive(false)
+        }
+    }
+
     useEffect(()=> {
         if(password !== ""){
             setIconActive(true);
-        }else{
-            setIconActive(false);
         }
     }, [password])
 
     return (
     <>
     <div className={styles.inputContainer}>
-           <input id="password" name="password" className={styles.formInput} type="password" placeholder="Senha" value={password}
+           <input id="password" name="password" onFocus={() => inside()} onBlur={() => outside()} className={styles.formInput} type="password" placeholder="Senha" value={password}
             onChange={(event) => (
                 setPassword(event.target.value),
                 validatePassword(event.target)

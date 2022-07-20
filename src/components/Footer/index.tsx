@@ -20,7 +20,7 @@ export default function Footer(){
 
     useEffect(() => {
         counter > 0 && setTimeout(() => 
-        setCounter(counter - 1), 100000);
+        setCounter(counter - 1), 1000);
         if(counter === 0 ){
               logout();  
         }

@@ -55,11 +55,19 @@ export default function RegisterPassword() {
         }
     }
 
+    function inside(){
+        setIconActive(true)
+    }
+
+    function outside(){
+        if(password == ""){
+            setIconActive(false)
+        }
+    }
+
     useEffect(()=> {
         if(password !== ""){
             setIconActive(true);
-        }else{
-            setIconActive(false);
         }
     }, [password])
 
@@ -67,7 +75,7 @@ export default function RegisterPassword() {
     return (
     <>
     <div className={styles.inputContainer}>
-           <input id="password" name="password" className={classNames({[styles.formInput]: true, [styles.passwordError]: invalidPassword})}type="password" placeholder="Senha" value={password}
+           <input id="password" name="password" onFocus={() => inside()} onBlur={() => outside()} className={classNames({[styles.formInput]: true, [styles.passwordError]: invalidPassword})}type="password" placeholder="Senha" value={password}
             onChange={(event) => (
                 setPassword(event.target.value),
                 validatePassword(event.target)

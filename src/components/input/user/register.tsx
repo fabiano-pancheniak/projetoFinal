@@ -21,18 +21,26 @@ export default function RegisterEmail() {
 		}
 	}
 
+    function inside(){
+        setIconActive(true)
+    }
+
+    function outside(){
+        if(email == ""){
+            setIconActive(false)
+        }
+    }
+
     useEffect(()=> {
         if(email !== ""){
             setIconActive(true);
-        }else{
-            setIconActive(false);
         }
     }, [email])
 
     return (
     <>
     <div className={styles.inputContainer}>
-        <input id="email" name="email" className={styles.formInput} type="email" placeholder="Usuário" value={email}
+        <input id="email" name="email" onFocus={() => inside()} onBlur={() => outside()} className={styles.formInput} type="email" placeholder="Usuário" value={email}
         onChange={(event) => (
             setEmail(event.target.value),
             validateEmail(event.target)
