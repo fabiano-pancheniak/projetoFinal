@@ -4,11 +4,9 @@ import Image from "../Image";
 
 export default function Container(){
     return(
-        <div className={styles.fullSize}>
         <div className={styles.container}>
             <Login />
             <Image />
-        </div>
         </div>
     )
 }

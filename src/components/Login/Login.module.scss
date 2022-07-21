@@ -71,7 +71,44 @@
 }
 
 
-@media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 1024px) {
+    .titleContainer {
+        margin-top: 1%;
+        margin-left: 6%;
+        width: 35%;
+        .titleDiv{
+            margin-top: 15%;
+        }
+        .errorDiv{
+            width: 100%;
+            margin-left:-5%;
+            margin-top: 5%;
+        }
+        
+    }
+
+  }
+
+  @media only screen and (max-width: 800px) {
+    .titleContainer {
+        margin-top: 1%;
+        margin-left: 1%;
+        width: 35%;
+        .titleDiv{
+            margin-top: 10%;
+        }
+        .registerOrLogin{
+            width: 100%;
+            margin-left: 2%;
+        }
+        
+    }
+
+  }
+
+
+
+  @media only screen and (max-width: 450px) {
     .titleContainer {
         margin-top: 10%;
         margin-left: 6%;
@@ -113,7 +150,7 @@
   }
 
 
-  
+
   @media only screen and (max-width: 400px) {
     .titleContainer {
         margin-top: 6%;
@@ -154,7 +191,7 @@
     }
 
   }
-
+ 
 
   @media only screen and (max-width: 350px) {
     .titleContainer {
@@ -196,6 +233,3 @@
     }
 
   }
-
-
- 

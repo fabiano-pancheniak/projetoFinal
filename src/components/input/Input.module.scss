@@ -72,6 +72,20 @@
       
 }
 
+@media only screen and (max-width: 800px) {
+    .inputContainer{
+        .checkboxesLeft{
+            margin-top: 4%;
+            width: 40%;
+        }
+        .checkboxesRight{
+            margin-top: 4%;
+            width: 40%;
+        }
+    }
+
+  }
+
 
 @media only screen and (max-width: 450px) {
     .iconActive {
