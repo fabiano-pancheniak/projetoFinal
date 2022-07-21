@@ -79,6 +79,24 @@
         left: -17%;
         transition: 1s;
     }
+    .inputContainer{
+    .checkboxesLeft{
+        color: white;
+        margin-left: 6%;
+        margin-top: 4%;
+        font-size: 0.8em;
+        display: inline-block;
+        width: 40%;
+    }
+
+    .checkboxesRight{
+        color: white;
+        margin-top: 4%;
+        font-size: 0.8em;
+        display: inline-block;
+        width: 40%;
+    }
+}
   }
 
   @media only screen and (max-width: 330px) {
@@ -86,6 +104,23 @@
         .formInput {
             width: 64%;
             margin-right: 5%;
+            
+        }
+        .checkboxesLeft{
+            color: white;
+            margin-left: 4%;
+            margin-top: 4%;
+            font-size: 0.8em;
+            display: inline-block;
+            width: 45%;
+        }
+    
+        .checkboxesRight{
+            color: white;
+            margin-top: 4%;
+            font-size: 0.8em;
+            display: inline-block;
+            width: 45%;
         }
     }
 
