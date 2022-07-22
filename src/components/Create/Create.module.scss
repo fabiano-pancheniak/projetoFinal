@@ -32,11 +32,16 @@
         .link{
             color: #E9B425;
         }
+
         .registerOrLogin{
             width: 80%;
             margin-left: 15%;
             color: white;
             margin-bottom: 2%;
+        }
+
+        .invisible{
+            display: none;
         }
 
         .errorDiv{

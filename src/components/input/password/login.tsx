@@ -11,8 +11,30 @@ export default function LoginPassword() {
     
     function validatePassword(password: HTMLInputElement) {
         const passwordReg = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/);
+        const number = new RegExp(/[0-9]/g);
+        const upper = new RegExp(/[A-Z]/g);
+        const lower = new RegExp(/[a-z]/g);
+        let upperOk = true
+        let lowerOk = true
+        let numberOk = true
+        let lengthOk = true
 
-        if (!password.value.match(passwordReg)) {
+        if(!password.value.match(number)){
+            numberOk = false
+        }
+        if(!password.value.match(upper)){
+            upperOk = false
+        }
+
+        if(!password.value.match(lower)){
+            lowerOk = false
+        }
+
+        if(password.value.length < 6){
+            lengthOk = false
+        }
+
+        if (!numberOk || !upperOk || !lengthOk || !lowerOk) {
             setError(true);
             setValidPassword(false);
         } else {

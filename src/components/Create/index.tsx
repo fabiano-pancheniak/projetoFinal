@@ -14,7 +14,6 @@ import {
   } from "firebase/auth";
 
 import { auth } from "../../firebase-config";
-import { FirebaseError } from "firebase/app";
 
 export default function Create() {
 	const navigate = useNavigate();
@@ -41,7 +40,6 @@ export default function Create() {
 		}
 
 		
-
 		const register = async () => {
 			try {
 			  const user = await createUserWithEmailAndPassword(
@@ -49,10 +47,13 @@ export default function Create() {
 				userInput,
 				passwordInput
 			  );
-			  //navigateLogin();
+			  navigateLogin();
 			} catch (error) {
-				//@ts-ignore
-			  console.log(error.message);
+				if(error = 400){
+					setError(true);
+				}
+			  //@ts-ignore
+			  console.log(error.message)
 			}
 		};
 
@@ -81,9 +82,8 @@ export default function Create() {
 								[styles.errorMessage]: true,
 								[styles.errorMessage__visible]: error
 							})}>
+
 								<div className={styles.error}>Ops, usuário ou senha inválidos. Tente novamente!</div>
-								
-								
 							</div>
 							</div>
             <button onClick={() => validate()} className={styles.btn}> Continuar </button>
