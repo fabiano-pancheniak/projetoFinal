@@ -43,7 +43,7 @@
     }
 
     .green{
-        color: green;
+        color: greenyellow;
     }
 
     .notChecked{
@@ -117,7 +117,7 @@
     .inputContainer{
         .formInput {
             width: 64%;
-            margin-right: 5%;
+            margin-right: 2%;
             
         }
         .checkboxesLeft{
@@ -140,8 +140,10 @@
 
     .iconActive {
         position: relative;
-        left: -23%;
+        left: -15%;
         transition: 1s;
     }
+
+    
     
   }

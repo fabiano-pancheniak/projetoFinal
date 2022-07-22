@@ -15,35 +15,44 @@ export default function RegisterPassword() {
     const [lengthCheck, setLengthChecked] = useState(false);
 
     function validatePassword(password: HTMLInputElement) {
-        const passwordReg = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/);
+        //não usa mais regex completo
+        //const passwordReg = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/);
         const number = new RegExp(/[0-9]/g);
         const upper = new RegExp(/[A-Z]/g);
         const lower = new RegExp(/[a-z]/g);
+        let upperOk = true
+        let lowerOk = true
+        let numberOk = true
+        let lengthOk = true
 
         if(!password.value.match(number)){
             setNumChecked(false)
+            numberOk = false
         } else{
             setNumChecked(true)
         }
 
         if(!password.value.match(upper)){
             setUpperChecked(false)
+            upperOk = false
         } else {
             setUpperChecked(true)
         }
 
         if(!password.value.match(lower)){
             setLowerChecked(false)
+            lowerOk = false
         } else {
             setLowerChecked(true)
         }
 
         if(password.value.length < 6){
             setLengthChecked(false)
+            lengthOk = false
         }else{
             setLengthChecked(true)
         }
-        if (!password.value.match(passwordReg)) {
+        if (!numberOk || !upperOk || !lengthOk || !lowerOk) {
             //ficou redundante
             setError(true);
             setValidPassword(false);

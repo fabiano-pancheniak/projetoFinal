@@ -60,7 +60,6 @@ export default function Login() {
 				userInput,
 				passwordInput
 			  );
-			  console.log(user);
 		navigateToMain();
 			} catch (error) {
 				setError(true);
@@ -68,13 +67,7 @@ export default function Login() {
 		  };
 		  login();
 		}
-
-
 		
-
-		
-
-
 	return (
 		<>
         <div className={styles.titleContainer}>
@@ -86,7 +79,7 @@ export default function Login() {
             <h2 className={styles.login}> Login </h2>
             <LoginEmail />
             <LoginPassword />
-			<div className={styles.registerOrLogin}> Não passui cadastro? <Link to='/register'>Registre-se</Link></div>
+			<div className={styles.registerOrLogin}> Não passui cadastro? <Link className={styles.link} to='/register'>Registre-se</Link></div>
 			<div className={styles.errorDiv}>
             <div className={classNames({
 								[styles.errorMessage]: true,

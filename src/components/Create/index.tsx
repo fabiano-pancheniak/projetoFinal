@@ -14,6 +14,7 @@ import {
   } from "firebase/auth";
 
 import { auth } from "../../firebase-config";
+import { FirebaseError } from "firebase/app";
 
 export default function Create() {
 	const navigate = useNavigate();
@@ -48,9 +49,10 @@ export default function Create() {
 				userInput,
 				passwordInput
 			  );
-			  navigateLogin();
+			  //navigateLogin();
 			} catch (error) {
-			  console.log(error);
+				//@ts-ignore
+			  console.log(error.message);
 			}
 		};
 
@@ -73,13 +75,14 @@ export default function Create() {
 			
             <RegisterEmail />
             <RegisterPassword />
-			<div className={styles.registerOrLogin}> Já passui cadastro? <Link to='/'>Login</Link></div>
+			<div className={styles.registerOrLogin}> Já passui cadastro? <Link className={styles.link} to='/'>Login</Link></div>
 			<div className={styles.errorDiv}>
             <div className={classNames({
 								[styles.errorMessage]: true,
 								[styles.errorMessage__visible]: error
 							})}>
 								<div className={styles.error}>Ops, usuário ou senha inválidos. Tente novamente!</div>
+								
 								
 							</div>
 							</div>

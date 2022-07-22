@@ -11,7 +11,7 @@
 
 
 @media only screen and (max-width: 450px) {
-    .imgContainer {
+  .imgContainer {
        background-image: url('../../assets/logo2__white.png');
        background-repeat: no-repeat;
        height: 10%;
@@ -25,6 +25,7 @@
     }
   }
 
+
   @media only screen and (max-width: 350px) {
     .imgContainer {
        background-image: url('../../assets/logo2__white.png');
@@ -36,7 +37,7 @@
        margin-top: 5%;
        left: 25%;
        .img{
-        display: none;
+          display: none;
        }
     }
   }
